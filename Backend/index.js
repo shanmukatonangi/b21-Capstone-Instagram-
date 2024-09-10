@@ -3,6 +3,7 @@ const app = express()
 const helmet=require("helmet")
 const morgan = require("morgan")
 const AuthRoute = require("./Routes/Auth")
+const userRoute = require("./Routes/User")
 const mongoose = require('mongoose');
 
 app.use(express.json())
@@ -18,7 +19,7 @@ async function main() {
 }
 
 app.use("/api/ig/auth",AuthRoute)  //localhost:8888/api/ig/auth/jfzkjdkjgseousroih
-
+app.use("/api/ig/profile",userRoute)
 
 app.listen(8888,()=>{
     console.log("server is running on port 8888")
